@@ -912,3 +912,149 @@ nav ul li a.active:hover {
         font-size: 1.5rem;
     }
 }
+
+/* --- Add this to the end of your css/styles.css file --- */
+
+/* 1. Define the colors from your design for easy reuse */
+:root {
+    --cresca-blue: #2563eb;
+    --cresca-purple: #9333ea;
+    --cresca-pink: #dd2590;
+    --cresca-indigo: #5154f3;
+}
+
+/* 2. Basic styling for the feature card and icon */
+.feature-card {
+    /* Adding a transition to make hover effects like box-shadow smooth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-icon {
+    /* These styles create the colored circle around the icon */
+    margin: 0 auto 1.5rem auto;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* The color 'white' will apply to the SVG's 'currentColor' stroke */
+    color: white; 
+    
+    /* This is the key for the smooth "move up" animation */
+    transition: transform 0.3s ease-in-out;
+}
+
+.feature-card h3 {
+    /* This is the key for the smooth color change animation */
+    transition: color 0.3s ease-in-out;
+}
+
+
+/* 3. The Hover Effect Logic */
+
+/* When you hover over the card... */
+.feature-card:hover .feature-icon {
+    /* ...move the icon up */
+    transform: translateY(-20px);
+}
+
+
+/* 4. Apply specific colors to each card */
+
+/* Community Building */
+.feature-card.feature-blue .feature-icon {
+    background: var(--cresca-blue);
+}
+.feature-card.feature-blue:hover h3 {
+    color: var(--cresca-blue);
+}
+
+/* Targeted Matching */
+.feature-card.feature-purple .feature-icon {
+    background: var(--cresca-purple);
+}
+.feature-card.feature-purple:hover h3 {
+    color: var(--cresca-purple);
+}
+
+/* Student Success */
+.feature-card.feature-pink .feature-icon {
+    background: var(--cresca-pink);
+}
+.feature-card.feature-pink:hover h3 {
+    color: var(--cresca-pink);
+}
+
+/* Quality Standards */
+.feature-card.feature-indigo .feature-icon {
+    background: var(--cresca-indigo);
+}
+.feature-card.feature-indigo:hover h3 {
+    color: var(--cresca-indigo);
+}
+
+/* --- Add this to your styles.css file to style the new footer --- */
+
+/* 1. Update the main footer-bottom layout to handle three columns */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between; /* Pushes items to the edges and center */
+    align-items: center;            /* Vertically aligns all items */
+    flex-wrap: wrap;                /* Allows items to stack on small screens */
+    gap: 20px;                      /* Adds space between items when they wrap */
+}
+
+/* 2. Style the new "Powered By" section */
+.footer-powered-by {
+    text-align: center; /* Centers the text and tagline within its column */
+}
+
+.footer-powered-by a {
+    color: #a0aec0;          /* A soft grey, similar to other footer text */
+    text-decoration: none;  /* Removes the underline as requested */
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-powered-by a:hover {
+    color: #e2e8f0; /* Brighter color on hover, matching other links */
+}
+
+.powered-by-tagline {
+    color: #718096;          /* A more muted color for the tagline */
+    font-size: 0.8rem;
+    margin: 4px 0 0 0;       /* Adds a little space above, removes bottom margin */
+}
+
+/* 3. Style the "Scroll to Top" button to match the image */
+.scroll-top-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #323a51; /* Darker circle background */
+    border-radius: 50%;
+    color: #a0aec0;
+    margin-left: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.scroll-top-btn:hover {
+    background-color: #4a5568; /* Lighter background on hover */
+    color: white;
+}
+
+/* 4. Update the copyright and legal sections for better alignment */
+.copyright, .footer-legal {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Helps on small screens */
+}
+
+.copyright {
+    flex-direction: column; /* Stacks the copyright and tagline */
+    align-items: flex-start;
+}
